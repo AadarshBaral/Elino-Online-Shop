@@ -1,14 +1,10 @@
 # This app uses redis as a caching service 
-To install redis in windows, we need (windows subsystem for linux)
-            -install wsl with ** Powser shell **
+To install redis in windows, we need (windows subsystem for linux)-install wsl with **Powser shell**
             ```
             wsl --install
-
-            ```
-            -you can install Ubuntu terminal using 
-            ```
             wsl --install -d <Distribution Name>.
             ```
+
 ## Install redis
 ```
 sudo apt-add-repository ppa:redislabs/redis
