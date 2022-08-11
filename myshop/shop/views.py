@@ -34,8 +34,7 @@ def product_detail(request, id, slug):
     try:
         if cache.get(id):
             product = cache.get(id)
-            print(product.price)
-            print("Caching works")
+          
 
         else:
             product = get_object_or_404(Product,
@@ -46,7 +45,7 @@ def product_detail(request, id, slug):
                 id , product
             )
         
-            print('Query')
+        
     except exception as e:
         print(e)
         
