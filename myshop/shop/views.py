@@ -11,13 +11,14 @@ from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from django.views.decorators.cache import cache_page
 
 
-CACHE_TTL  = getattr(settings , "CACHE_TTL",DEFAULT_TIMEOUT)
+CACHE_TTL = getattr(settings, "CACHE_TTL", DEFAULT_TIMEOUT)
+
 
 def product_list(request, category_slug=None):
     category = None
 
     categories = Category.objects.all()
-        
+
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -34,7 +35,6 @@ def product_detail(request, id, slug):
     try:
         if cache.get(id):
             product = cache.get(id)
-          
 
         else:
             product = get_object_or_404(Product,
@@ -42,17 +42,14 @@ def product_detail(request, id, slug):
                                         slug=slug,
                                         available=True)
             cache.set(
-                id , product
+                id, product
             )
-        
-        
+
     except exception as e:
         print(e)
-        
+
     cart_product_form = CartAddProductForm()
     return render(request,
-    'shop/product/detail.html',
-    {'product': product,
-    'cart_product_form': cart_product_form})
-    
-    
+                  'shop/product/detail.html',
+                  {'product': product,
+                   'cart_product_form': cart_product_form})
