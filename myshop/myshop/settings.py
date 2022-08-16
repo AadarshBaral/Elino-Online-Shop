@@ -39,16 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "debug_toolbar",
-   'shop',
-   'cart',
-   'orders'
+    'shop',
+    'cart',
+    'orders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-      "debug_toolbar.middleware.DebugToolbarMiddleware",    
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -150,3 +150,5 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
